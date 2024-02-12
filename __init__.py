@@ -19,7 +19,7 @@ def MaPremiereAPI():
     return render_template('contact_form.html')
     
 
-@app.route('/paris/')
+@app.route('/histogramme/')
 def meteo2():
     response = urlopen('https://samples.openweathermap.org/data/2.5/forecast?lat=0&lon=0&appid=xxx')
     raw_content = response.read()
