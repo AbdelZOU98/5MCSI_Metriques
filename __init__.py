@@ -24,10 +24,10 @@ def meteo2():
     json_content = json.loads(raw_content.decode('utf-8'))
     results = []
     for list_element in json_content.get('list', []):
-        dt_value = list_element.get('dt')
-        temp_day_value = list_element.get('main', {}).get('temp') - 273.15 # Conversion de Kelvin en °c 
+        dt_value = datetime.utcfromtimestamp(list_element.get('dt')).strftime('%Y-%m-%d %H:%M:%S')
+        temp_day_value = list_element.get('main', {}).get('temp') - 273.15  # Conversion de Kelvin en °c 
         results.append({'Jour': dt_value, 'temp': temp_day_value})
-    return jsonify(results=results)
+    return render_template('histog.html', results=results)
 
 
 @app.route("/rapport/")
