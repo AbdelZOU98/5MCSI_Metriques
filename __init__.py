@@ -4,7 +4,7 @@ from flask import json
 from datetime import datetime
 from urllib.request import urlopen
 import sqlite3
-import matplotlib.pyplot as plt
+
 
 
 app = Flask(__name__)
@@ -39,7 +39,6 @@ def mongraphique():
 @app.route("/histogramme2/")
 def mongraphique2():
     return render_template("histog.html")
-
 
 
 if __name__ == "__main__":
